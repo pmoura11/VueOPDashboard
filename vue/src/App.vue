@@ -1,37 +1,23 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <!--
-    
-      Dashboard openflights ids, you can change for yours
-    
-    -->
-    <button v-on:click="api.api.sendFilter('livehtml_1527725378122','country','Spain')">Send param </button>
-    <button v-if="params['$gadgetid']=='MASTER-Gadget-6'" size="small" v-on:click="params={}">Go to dashboard</button>
-    <button v-if="params['$gadgetid']!='MASTER-Gadget-6'" size="small" v-on:click="params={'$gadgetid':'MASTER-Gadget-6'}">Show Only MASTER-Gadget-6</button>
-    
-    <dashboard-wrapper :api="api" :params="params" id="inst1" style="height:700px;width:80%;position:absolute" editmode="true" :dashboard="dashboard" :token="token" :platformbase="platformbase" i18n="false">
+  <div>
+    <dashboard-wrapper :api="api" :params="params" id="inst1" style="height:85%;width:100%;position:absolute" editmode="true" :dashboard="dashboard" :token="token" :platformbase="platformbase" i18n="false">
     </dashboard-wrapper>
   </div>
 </template>
 
 <script>
 
-import HelloWorld from './components/HelloWorld.vue';
 import dashboardWrapper from './components/VueWrapperComponent.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld,
     dashboardWrapper
   },
   data: function(){
     return {
-      dashboard: "{{dashboardID}}",
-      token: "{{token}}",
-      platformbase: "{{platformbase}}",
+      dashboard: "15edf58b-a6e2-448c-b170-eda467e319df",
+      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcmluY2lwYWwiOiJwbW91cmEiLCJjbGllbnRJZCI6Im9uZXNhaXRwbGF0Zm9ybSIsInVzZXJfbmFtZSI6InBtb3VyYSIsInNjb3BlIjpbIm9wZW5pZCJdLCJuYW1lIjoicG1vdXJhIiwiZXhwIjoxNjE3NTg4NTkxLCJncmFudFR5cGUiOiJwYXNzd29yZCIsInBhcmFtZXRlcnMiOnsidmVydGljYWwiOm51bGwsImdyYW50X3R5cGUiOiJwYXNzd29yZCIsInVzZXJuYW1lIjoicG1vdXJhIn0sImF1dGhvcml0aWVzIjpbIlJPTEVfREFUQVNDSUVOVElTVCJdLCJqdGkiOiI0NmRjYzMwMy00YzU3LTRjYjgtODljOC0wNjcwZGUzZmM0YzYiLCJjbGllbnRfaWQiOiJvbmVzYWl0cGxhdGZvcm0ifQ.wrvlMWip7voi9JjzXpFB0I8bPQ3ZKR1tZ4Hpp5HcOfw",
+      platformbase: "https://lab.onesaitplatform.com",
       params: {},
       api: {}
     }
